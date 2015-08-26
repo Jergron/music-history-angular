@@ -1,0 +1,42 @@
+{
+  "songs": [ 
+  {
+     "title": "Love Is A Losing Game",
+     "artist": "Amy Winehouse",
+     "album": {
+       "name": "Back to Black",
+        "year": "2006"
+      }
+    },
+    {
+      "title": "Legs",
+      "artist": "ZZTop",
+      "album": {
+        "name": "Eliminator",
+        "year": "1983"
+        }
+      },
+      { 
+      "title": "Sharp Dressed Man", 
+      "artist": "ZZTop", 
+      "album": {
+        "name": "Eliminator", 
+        "year": "1983"}
+    },
+    { 
+      "title": "Gimme All Your Lovin", 
+      "artist": "ZZTop", 
+      "album": {
+        "name": "Eliminator", 
+        "year": "1983"}
+    },
+    { 
+      "title": "Rough Boy", 
+      "artist": "ZZTop", 
+      "album": {
+        "name": "Afterburner", 
+        "year": "1985"}
+    }
+
+  ]
+}
