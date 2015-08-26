@@ -1,10 +1,10 @@
 {
   "songs": [ 
     {
-      "title": "The Logical Song",
-      "artist": "Supertramp",
+      "title": "the logical song",
+      "artist": "supertramp",
       "album": {
-        "name": "Breakfast in America",
+        "name": "breakfast in america",
         "year": "1979"
         }
     },

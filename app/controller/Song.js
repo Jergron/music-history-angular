@@ -29,6 +29,11 @@ app.controller("SongCtrl", function($scope, $q) {
 
   }; 
 
+  $scope.resetFilter = function() {
+    $scope.theAlbum = "";
+    $scope.theArtist = "";
+  }
+
 function getSongList(url) {
 
   return $q(function(resolve, reject) {
