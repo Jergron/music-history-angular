@@ -1,15 +1,25 @@
-app.controller("SongCtrl", function($scope, $q) {
-  $scope.songSearchText = "";
-  $scope.theSong = "";
+app.controller("SongCtrl", 
+  ["$scope", 
+   "simple_storage", 
+  function($scope, simple_storage) {
+  
   $scope.songs = [];
+  $scope.templates = [
+    {url: 'partials/song-list.html'},
+    {url: 'partials/song-detail.html'}
 
+  ];
+  $scope.songList = $scope.templates[0];
+  $scope.songDetail = $scope.templates[1];
+  
+  $scope.songSearchText = "";
   $scope.newSong =     { 
       "title": "", 
       "artist": "", 
       "album": {
         "name": "", 
         "year": ""} 
-      }
+      };
 
   $scope.killSong = function(song) {
     var songIndex = $scope.songs.indexOf(song);
@@ -31,40 +41,25 @@ app.controller("SongCtrl", function($scope, $q) {
 
   $scope.resetFilter = function() {
     $scope.theAlbum = "";
-    $scope.theArtist = "";
-  }
+    $scope.theArtist = "";  
+  };
 
-function getSongList(url) {
 
-  return $q(function(resolve, reject) {
-
-      $.ajax({
-        url: url 
-      })
-      .done(function(response){
-        resolve(response.songs);
-      })
-      .fail(function(xhr, status, error) {
-        reject(error);
-      });
-    }); 
-}
-
-getSongList("./data/comList.json")
+  simple_storage.getSongList("./data/comList.json")
     .then(function(songs) {
       for (var i = 0; i < songs.length; i++) {
         $scope.songs.push(songs[i]); 
-      };
-  getSongList("./data/comList2.json")
+      }
+  simple_storage.getSongList("./data/comList2.json")
       .then(function(songs) {
         for (var i = 0; i < songs.length; i++) {
           $scope.songs.push(songs[i]); 
-        };
+        }
       }, function(error) {
         console.log("error", error);
       });
     }, function(error) {
       console.log("error", error);
     });
-
-});
+  }
+]);

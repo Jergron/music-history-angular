@@ -7,89 +7,20 @@
 </head>
 <body ng-app="MusicHistory">
   <div ng-controller="SongCtrl">
-    
-  <!-- NAVBAR -->
-    <nav class="navbar navbar-default" id="navbar">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="ViewMusic.html">View Music</a></li>
-      <li><a href="#">View Artist</a></li>
-      <li><a href="#">Profile</a></li>
-    </ul>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" ng-model="theSong" placeholder="Search Site">
-      </div>
-    </form>
-    </nav>
-    <div class="container" id="box">
-      <!-- Container for main and sidebar --> 
-      <div class=" container row">
-      <!-- Container for sidebar --> 
-        <div class="col-md-2" id="sidebar">
-        <div class="well">
-            <label>Artist</label>
-             <select 
-            ng-model="theArtist"
-            ng-options="value.artist for value in songs | unique:'artist' | filter: theAlbum.artist"
-            class="form-control">
-            </select>
-            <label>Album</label>
-            <select 
-            ng-model="theAlbum"
-            ng-options="value.album.name for value in songs | unique:'album' | filter: {artist: theArtist.artist}"
-            class="form-control">
-            </select>
-          </br>
-          <div>
-            <button class="btn btn-warning" ng-click="resetFilter()">Reset Filter</button>
-          </div>
-        </div>
-          </br>
-          <div class="well container-fluid"> 
-            <label>Add New Song</label>
-            <input class="form-control" type="text" ng-model="newSong.title"/>
-            </br>
-            <input class="form-control" type="text" ng-model="newSong.artist"/>
-            </br>
-            <input class="form-control" type="text" ng-model="newSong.album.name"/>
-            </br>
-            <input class="form-control" type="text" ng-model="newSong.album.year"/>
-            </br>
-            <button class="btn btn-success" ng-click="addSong()">Create</button>
-          </div>
-        </div>
-        <div class="col-sm-2"></div>
-        <!-- container 'main' for song titles, artists, and album names -->
-        <div class="col-sm-8 main">
-          <div class="song-list well" ng-repeat="song in songs | filter: {album: theAlbum.album} | filter: {artist: theArtist.artist} | filter:theSong">
-           <div>
-             <h3>{{song.title | capitalize}} <small>({{song.album.year}})</small></h3> 
-             <p>Performed by {{song.artist | capitalize}} on album {{song.album.name | capitalize}}</p>
-             <button class="glyphicon glyphicon-trash btn btn-danger btn-sm delButton" ng-click="killSong(song)"></button>
-           </div> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="lib/bower_components/angular/angular.min.js"></script>
+    <div ng-view></div>
+
+  </div>
+  <script src="lib/bower_components/angular/angular.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.js"></script>
+  <script src="lib/bower_components/angular-animate/angular-animate.js"></script>
   <script src="lib/node_modules/angular-filter/dist/angular-filter.min.js"></script>
   <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="app/app.js"></script>
+  <script src="app/factories/simple_storage.js"></script>
   <script src="app/filters/capitalize.js"></script>
   <script src="app/filters/reverse.js"></script>
   <script src="app/filters/sort.js"></script>
-  <script src="app/controller/Song.js"></script>
+  <script src="app/controller/SongCtrl.js"></script>
 </body>
 </html>

@@ -8,5 +8,5 @@ app.filter('capitalize', function() {
         return upperCase.join(' ');
 
     }
-  }
+  };
 });

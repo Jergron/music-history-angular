@@ -1,0 +1,43 @@
+
+
+    <div class="container" id="box">
+      <!-- Container for main and sidebar --> 
+      <div class=" container row">
+      <!-- Container for sidebar --> 
+        <div class="col-md-3" id="sidebar">
+        <div class="well">
+            <label>Artist</label>
+             <select 
+            ng-model="theArtist"
+            ng-options="value.artist for value in songs | unique:'artist' | filter: theAlbum.artist"
+            class="form-control">
+            </select>
+            <label>Album</label>
+            <select 
+            ng-model="theAlbum"
+            ng-options="value.album.name for value in songs | unique:'album' | filter: {artist: theArtist.artist}"
+            class="form-control">
+            </select>
+          </br>
+          <div>
+            <button class="btn btn-warning" ng-click="resetFilter()">Reset Filter</button>
+          </div>
+        </div>
+          </br>
+          <div class="well container-fluid"> 
+            <label>Add New Song</label>
+            <input class="form-control" type="text" ng-model="newSong.title"/>
+            </br>
+            <input class="form-control" type="text" ng-model="newSong.artist"/>
+            </br>
+            <input class="form-control" type="text" ng-model="newSong.album.name"/>
+            </br>
+            <input class="form-control" type="text" ng-model="newSong.album.year"/>
+            </br>
+            <button class="btn btn-success" ng-click="addSong()">Create</button>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+       <div ng-include="songList.url"></div>
+      </div>
+    </div>

@@ -1,0 +1,10 @@
+<!-- container 'main' for song titles, artists, and album names -->
+<div class="col-sm-8 example-animate-container main">
+  <div class="song-list well" ng-repeat="song in songs | filter: {album: theAlbum.album} | filter: {artist: theArtist.artist} | filter:theSong as results">
+   <div>
+     <h3>{{song.title | capitalize}} <small>({{song.album.year}})</small></h3> 
+     <p>Performed by {{song.artist | capitalize}} on album {{song.album.name | capitalize}}</p>
+     <button class="glyphicon glyphicon-trash btn btn-danger btn-sm delButton" ng-click="killSong(song)"></button>
+   </div> 
+  </div>
+</div>
