@@ -1,4 +1,6 @@
 app.filter('capitalize', function() {
+
+  // Capitalizes the first letter of each word in a text string
   return function(input, scope) {
     if(input !== null) {
       var upperCase = input.split(' ');

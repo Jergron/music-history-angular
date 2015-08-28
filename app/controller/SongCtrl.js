@@ -2,24 +2,28 @@ app.controller("SongCtrl",
   ["$scope", 
    "simple_storage", 
   function($scope, simple_storage) {
-    
 
   $scope.theAlbum = "";
   $scope.theArtist = "";
+  $scope.searchText = "";
+
+  // Data from firebase 
   $scope.songs = simple_storage;
 
+// Adds songs to firebase 
   $scope.addSong = function() {
     $scope.songs.$add({ 
       title: $scope.newSong.title, 
       artist: $scope.newSong.artist, 
-      album: {
+      album: {s
         name: $scope.newSong.album.name, 
         year: $scope.newSong.album.year } 
     });
-    $scope.songs = "";
+
     location.reload();
   };
 
+// Array of html templates that get populate to the DOM
   $scope.templates = [
     {url: 'partials/song-list.html'},
     {url: 'partials/song-detail.html'}
@@ -27,12 +31,13 @@ app.controller("SongCtrl",
 
   $scope.songList = $scope.templates[0];
   $scope.songDetail = $scope.templates[1];
-  $scope.songSearchText = ""; 
 
+// Removes the song title and information from firebase
   $scope.killSong = function(song) {
     var songIndex = $scope.songs.$remove(song);
   }; 
 
+// Resets the artist and album filter on the sidebar
   $scope.resetFilter = function() {
     $scope.theAlbum = "";
     $scope.theArtist = ""; 
