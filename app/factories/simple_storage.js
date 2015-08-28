@@ -1,21 +1,6 @@
-app.factory("simple_storage", function($q, $http) {
+app.factory("simple_storage", function($q, $http, $firebaseArray) {
   
-  return {
+  var ref = new Firebase("https://blazing-heat-6599.firebaseio.com/songs");
 
-    getSongList: function(url) {
-
-      return $q(function(resolve, reject) {
-
-          $http.get(url)
-          .success(
-            function(objectFromJSONFile) {
-              resolve(objectFromJSONFile.songs);
-            },function(error) {
-              reject(error);
-            }
-          );
-       }); 
-    }
-
-  }
+  return $firebaseArray(ref);
 });

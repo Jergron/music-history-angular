@@ -1,5 +1,5 @@
 
-
+<div ng-controller="SongCtrl">
     <div class="container" id="box">
       <!-- Container for main and sidebar --> 
       <div class=" container row">
@@ -26,18 +26,19 @@
           </br>
           <div class="well container-fluid"> 
             <label>Add New Song</label>
-            <input class="form-control" type="text" ng-model="newSong.title"/>
+            <input class="form-control" type="text" placeholder="Song Title" ng-model="newSong.title"/>
             </br>
-            <input class="form-control" type="text" ng-model="newSong.artist"/>
+            <input class="form-control" type="text" placeholder="Artist" ng-model="newSong.artist"/>
             </br>
-            <input class="form-control" type="text" ng-model="newSong.album.name"/>
+            <input class="form-control" type="text" placeholder="Album" ng-model="newSong.album.name"/>
             </br>
-            <input class="form-control" type="text" ng-model="newSong.album.year"/>
+            <input class="form-control" type="text" placeholder="Year" ng-model="newSong.album.year"/>
             </br>
-            <button class="btn btn-success" ng-click="addSong()">Create</button>
+            <button class="btn btn-success" ng-click="addSong()">Add Song</button>
           </div>
         </div>
         <div class="col-sm-1"></div>
        <div ng-include="songList.url"></div>
       </div>
     </div>
+</div>

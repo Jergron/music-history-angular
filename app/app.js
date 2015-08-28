@@ -1,4 +1,4 @@
-var app = angular.module("MusicHistory",[ 'ngRoute', 'angular.filter', 'ngAnimate']);
+var app = angular.module("MusicHistory",[ 'ngRoute', 'angular.filter', 'ngAnimate', 'firebase']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
