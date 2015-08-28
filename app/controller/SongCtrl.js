@@ -15,7 +15,7 @@ app.controller("SongCtrl",
     $scope.songs.$add({ 
       title: $scope.newSong.title, 
       artist: $scope.newSong.artist, 
-      album: {s
+      album: {
         name: $scope.newSong.album.name, 
         year: $scope.newSong.album.year } 
     });
