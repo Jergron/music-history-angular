@@ -1,13 +1,37 @@
-var app = angular.module("MusicHistory",[ 'ngRoute', 'angular.filter', 'ngAnimate', 'firebase']);
+define([
+  'angular',
+  'angularRoute',
+  'angularFire',
+  'angularFilter',
+  'controller/SongCtrl',
+  'controller/SongListCtrl'
+], function(angular, angularRoute, _firebase, SongCtrl, SongListCtrl) {
 
-app.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/', {
-        templateUrl: 'partials/nav.html',
-        controller: 'SongCtrl'
-      }).
-      otherwise({
-        redirectTo: '/'
-      });
-  }]);
+    // Declare app level module which depends on views, and components
+    return angular.module('MusicHistory', [
+      'ngRoute',
+      'firebase',
+      'angular.filter',
+      'MusicHistory.songForm',
+      'MusicHistory.songList'
+    ])
+    .config(['$routeProvider', 
+      function($routeProvider) {
+        $routeProvider
+        .otherwise({redirectTo: '/songs'});
+    }]);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

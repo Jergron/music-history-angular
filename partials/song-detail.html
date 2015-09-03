@@ -41,8 +41,15 @@
         <div class="col-sm-1"></div>
 
        <!-- Includes the song-list.html template  --> 
-       <div ng-include="songList.url"></div>
+        <div class="col-sm-8 example-animate-container main">
+          <div class="song-list well" ng-repeat="song in songs | filter: {album: theAlbum.album} | filter: {artist: theArtist.artist} | filter:theSong as results">
+            <div>
 
+              <a href="#/songs/{{ song.$id }}">{{ song.title }}</a>
+
+            </div> 
+          </div>
+        </div>
       </div>
     </div>
 </div>

@@ -1,10 +1,24 @@
-app.controller("SongCtrl", 
-  ["$scope", 
-   "simple_storage",
-   "Auth",
-  function($scope, simple_storage, Auth) {
 
-    $scope.auth = Auth;
+define([
+  'angular',
+  'angularRoute'
+], function(angular) {
+  angular.module("MusicHistory.songForm", ['ngRoute'])
+  .config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/songs', {
+      templateUrl: 'partials/nav.html',
+      controller: 'SongCtrl'
+    });
+  }])
+  .controller("SongCtrl", 
+  ["$scope", "$firebaseAuth", "$firebaseArray",
+  function($scope, $firebaseAuth, $firebaseArray) {
+    var ref = new Firebase("https://blazing-heat-6599.firebaseio.com/songs");
+    
+    // Data from firebase 
+    $scope.songs = $firebaseArray(ref);
+
+    $scope.auth = $firebaseAuth(ref);
 
     // Any time auth status updates, add the user data to scope
     $scope.auth.$onAuth(function(authData) {
@@ -16,8 +30,6 @@ app.controller("SongCtrl",
     $scope.theArtist = "";
     $scope.searchText = "";
 
-    // Data from firebase 
-    $scope.songs = simple_storage;
 
   // Adds songs to firebase 
     $scope.addSong = function() {
@@ -54,3 +66,4 @@ app.controller("SongCtrl",
 
 }
 ]);
+});

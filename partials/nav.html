@@ -1,6 +1,6 @@
 <!-- NAVBAR -->
 
-<nav class="navbar navbar-default" id="navbar">
+<nav ng-show="authData" class="navbar navbar-default" id="navbar">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -25,11 +25,12 @@
     <h5>Hello, <strong>{{ authData.github.displayName }}</strong></h5>
     <button class="btn btn-warning btn-xs" ng-click="auth.$unauth()">Logout</button>
   </div>
-  <div ng-hide="authData">
-    <h5>Welcome, please log in.</h5>
-    <button class="btn btn-info btn-xs" ng-click="auth.$authWithOAuthPopup('github')">Login With Github</button>
-  </div>
 </nav>
+ 
+<div ng-hide="authData">
+  <h5>Welcome, please log in.</h5>
+  <button class="btn btn-info btn-xs" ng-click="auth.$authWithOAuthPopup('github')">Login With Github</button>
+</div>
 
 <!-- Includes the sidebar information and song list -->
-<div ng-include="songDetail.url"></div>
+<div ng-show="authData" ng-include="songDetail.url"></div>
