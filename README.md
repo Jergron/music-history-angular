@@ -25,14 +25,12 @@ Look at the code in your library.
   * ``` npm install ```
 
 ### Using Angular
-Used two-way data binding to help compile different templates into view. Starting on line 6 in controller titled ``SongCtrl.js``  are the paths for the logic to be populated into the DOM and then uploaded to the server:
+Used two-way data binding to help compile different templates into view. On lines 8 and 9 in controller titled ``SongCtrl.js`` is the path that is uploaded to the server and the path for the logic to be populated into the DOM.
 ```
-
-  angular.module("MusicHistory.songForm", ['ngRoute'])
-  .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/songs', {
       templateUrl: 'partials/nav.html',
       controller: 'SongCtrl'
+    });
   ```
 
 ### Using Require
