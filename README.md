@@ -27,8 +27,8 @@ Look at the code in your library.
 ### Using Angular
 Used two-way data binding to help compile different templates into view. On lines 8 and 9 in controller titled ``SongCtrl.js`` is the path that is uploaded to the server and the path for the logic to be populated into the DOM.
 ```
-    $routeProvider.when('/songs', {
-      templateUrl: 'partials/nav.html',
+ 8  $routeProvider.when('/songs', {
+ 9    templateUrl: 'partials/nav.html',
       controller: 'SongCtrl'
     });
   ```
