@@ -1,8 +1,8 @@
 #music-history-angular
 ###A Nashville Software School exercise for building a modular browser application using [RequireJS](http://requirejs.org) with [AngularJS](https://docs.angularjs.org/guide/introduction)
 
-**music-history-angular** was created to help understand how Angular uses it's data binding and dependancy injection. 
-Require was then later implemented in order to reduce a large amount of ```<script></script>``` tags using it's unique Asynchronous Module Definition.
+**music-history-angular** was created to help understand how AngularJS uses it's data binding and dependancy injection. 
+RequireJS was then later implemented in order to reduce a large amount of ```<script></script>``` tags using it's unique Asynchronous Module Definition.
 The original code that I refactored from my previouse project can be found here: [music-history-5](https://github.com/Jergron/music-history-5)
 
 **music-history-angular**  is a lifestyle app that allows the user to search and add song titles to their database
@@ -24,7 +24,7 @@ Look at the code in your library.
   * ``` bower install ``` 
   * ``` npm install ```
 
-### Using Angular
+### Using AngularJS
 Used two-way data binding to help compile different templates into view. On lines 8 and 9 in controller titled ``SongCtrl.js`` is the path that is uploaded to the server and the path for the logic to be populated into the DOM.
 ```
  8  $routeProvider.when('/songs', {
@@ -33,8 +33,8 @@ Used two-way data binding to help compile different templates into view. On line
     });
   ```
 
-### Using Require
-The purpose in using Require with Angular is going __from this:__
+### Using RequireJS
+The purpose in using RequireJS with AngularJS is going __from this:__
 ```
 <body>
 
