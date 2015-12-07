@@ -1,5 +1,5 @@
 #music-history-angular
-###A Nashville Software School excercise for building a modular browser application using [RequireJS](http://requirejs.org) with [AngularJS](https://docs.angularjs.org/guide/introduction)
+###A Nashville Software School exercise for building a modular browser application using [RequireJS](http://requirejs.org) with [AngularJS](https://docs.angularjs.org/guide/introduction)
 
 **music-history-angular** was created to help understand how Angular uses it's data binding and dependancy injection. 
 Require was then later implemented in order to reduce a large amount of ```<script></script>``` tags using it's unique Asynchronous Module Definition.
